@@ -92,6 +92,11 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <script>
+    $(function () {
+      $(".draggable").draggable();
+    });
+  </script>
 </head>
 
 <body>
@@ -137,7 +142,7 @@
         <!--.wrap = container (width: 90%) -->
         <div class="wrap aligncenter">
           <h1>
-            <strong>async JS, event loop, local storage, .filter, .classList, audio API</strong>
+            <strong>async JS, event loop, local storage, .filter, .classList</strong>
           </h1>
           <p class="text-intro">Week 4
             <br/>COMP 2112
@@ -155,17 +160,6 @@
         <!-- .end .wrap -->
       </section>
 
-      <section class="bg-apple aligncenter">
-        <!--.wrap = container (width: 90%) -->
-        <div class="wrap">
-          <h2>Install node</h2>
-          <p>
-            <a href="https://nodejs.org">nodejs.org</a>
-          </p>
-        </div>
-        <!-- .end .wrap -->
-      </section>
-
       <section class="">
         <!--.wrap = container (width: 90%) -->
         <div class="wrap size-50 aligncenter">
@@ -176,18 +170,18 @@
           <div class="bg-white shadow">
             <ul class="flexblock reasons">
               <li>
-                <h2>Review of .map() followed by quiz</h2>
-                <p>Review on how to upload to Azure, lampstack, now</p>
+                <h2>asynchronous nature of JS</h2>
+                <p>Learn about the event loop</p>
               </li>
               <li>
-                <h2>ESlint, Prettier, Babel</h2>
-                <p>a few tools in the JS ecosystem</p>
+                <h2>localStorage</h2>
+                <p>JSON.stringify, JSON.parse</p>
               </li>
               <li>
                 <h2>
-                  ES6 fetch, AJAX, REST, JSON
+                  .filter, .includes, .classList
                 </h2>
-                <p>in-class exercise using the new XMLHttpRequest method. Lab3 using mockaroo's custom api's</p>
+                <p>Learn how to filter arrays, use the string method includes, and how to add classes to elements</p>
               </li>
             </ul>
           </div>
@@ -196,14 +190,53 @@
         <!-- .end .wrap -->
       </section>
 
+      <section class="">
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap size-100 aligncenter">
+
+          <div class="grid vertical-align">
+            <div class="column">
+              <pre><code><h4>
+console.log('hi');
+
+fetch('https://api.github.com/users/avcoder')
+    .then(res => res.json())
+    .then(data => console.log(data));
+
+console.log('bye');
+</h4></code></pre>
+
+            </div>
+            <div class="column">
+
+              <h3>What is the order of output in the console?</h3>
+
+            </div>
+          </div>
+          <!-- .end .bg-white shadow -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
 
       <section class="aligncenter bg-primary">
-        <div class="wrap size-90">
-          <h4>Tim Horton's Async Analogy
-          </h4>
-          <a href="https://github.com/avcoder/comp2068-week02/blob/master/timhortons.md">
-            <img src="./static/images/timHortonsAnalogy.PNG" alt="Tim Hortons Analogy to asynchronous callbacks in JS">
-          </a>
+        <div class="grid vertical-align">
+          <div class="column" style="width: 70%">
+            <h4>Tim Horton's Async Analogy
+            </h4>
+            <a href="https://github.com/avcoder/comp2068-week02/blob/master/timhortons.md">
+              <img src="./static/images/timHortonsAnalogy.PNG" alt="Tim Hortons Analogy to asynchronous callbacks in JS">
+            </a>
+          </div>
+          <div class="column">
+            <img src="./static/images/tim1.PNG" class="draggable" style="width: 100%" alt="coffee.log(double double)">
+            <br>
+            <img src="./static/images/tim2.PNG" class="draggable" style="width: 100%" alt="console(panini)">
+            <br>
+            <img src="./static/images/tim3.PNG" class="draggable" style="width: 100%" alt="coffee.log(black)">
+            <br>
+            <a href="./static/images/tickets.jpg">ticket holder image</a>
+          </div>
         </div>
         <!-- .end .wrap -->
       </section>
@@ -215,7 +248,7 @@
               What is the event loop?
             </h3>
             <p>
-              <a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ#t=10m48s">Watch from 10:48 to to 15:11</a>
+              <a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ#t=10m48s">Watch from 9:00 to to 15:11</a>
             </p>
 
           </div>
@@ -231,6 +264,124 @@
         </div>
         <!-- .end .wrap -->
       </section>
+
+      <section class="bg-primary">
+        <div class="wrap aligncenter">
+          <pre><code><h3>
+console.log('double double');
+
+fetch('https://api.github.com/users/avcoder')
+  .then(res => res.json())
+  .then(data => console.log(data));
+
+console.log('black');</h3>
+</code></pre>
+          <p>view debugger in action
+            <a href="./fetch.html">fetch.html</a> using an extension called "Debugger for Chrome"
+          </p>
+          <!-- end .content-left -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section class="">
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap size-100 aligncenter">
+
+          <div class="grid vertical-align">
+            <div class="column">
+              <pre><code><h4>
+// set
+localStorage.setItem('myCat', 'Whiskers')
+
+// get
+localStorage.getItem('myCat')
+
+// remove
+localStorage.removeItem('myCat')
+
+// clear
+localStorage.clear();
+  </h4></code></pre>
+
+            </div>
+            <div class="column">
+
+              <h3>localStorage</h3>
+              <p>Check your browser's application storage tab to view localstorage</p>
+              <p>Example: instead of 'Whiskers' try storing an array of objects</p>
+            </div>
+          </div>
+          <!-- .end .bg-white shadow -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+
+      <section class="bg-apple">
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap size-100 aligncenter">
+
+          <div class="grid vertical-align">
+            <div class="column">
+              <p data-height="500" data-theme-id="0" data-slug-hash="gdVMrV" data-default-tab="js" data-user="avcoder" data-pen-title=".filter"
+                class="codepen">See the Pen
+                <a href="https://codepen.io/avcoder/pen/gdVMrV/">.filter</a> by A.V. (
+                <a href="https://codepen.io/avcoder">@avcoder</a>) on
+                <a href="https://codepen.io">CodePen</a>.</p>
+              <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+            </div>
+            <div class="column">
+
+              <h3>.filter, .includes</h3>
+              <img src="./static/images/streeetnames.PNG" alt="array of streetnames">
+            </div>
+          </div>
+          <!-- .end .bg-white shadow -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section class="bg-apple">
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap size-100 aligncenter">
+
+          <h3>Run Debugger for Chrome than inspect devtools</h3>
+          <p>
+            <a href="./de.html">de.html</a>
+          </p>
+        </div>
+        </div>
+        <!-- .end .bg-white shadow -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       <section>
         <!-- .wrap = container (width: 90%) -->
